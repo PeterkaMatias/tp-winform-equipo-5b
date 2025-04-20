@@ -34,11 +34,14 @@
             this.btnEliminarArticulo = new System.Windows.Forms.Button();
             this.btnDetalleArticulo = new System.Windows.Forms.Button();
             this.btnListarArticulo = new System.Windows.Forms.Button();
+            this.tituloApp = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnBusquedaArticulo
             // 
-            this.btnBusquedaArticulo.Location = new System.Drawing.Point(238, 136);
+            this.btnBusquedaArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBusquedaArticulo.Location = new System.Drawing.Point(238, 167);
             this.btnBusquedaArticulo.Name = "btnBusquedaArticulo";
             this.btnBusquedaArticulo.Size = new System.Drawing.Size(151, 45);
             this.btnBusquedaArticulo.TabIndex = 1;
@@ -48,7 +51,9 @@
             // 
             // btnAgregarArticulo
             // 
-            this.btnAgregarArticulo.Location = new System.Drawing.Point(238, 187);
+            this.btnAgregarArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarArticulo.Location = new System.Drawing.Point(238, 218);
             this.btnAgregarArticulo.Name = "btnAgregarArticulo";
             this.btnAgregarArticulo.Size = new System.Drawing.Size(151, 45);
             this.btnAgregarArticulo.TabIndex = 2;
@@ -58,7 +63,9 @@
             // 
             // btnModificarArticulo
             // 
-            this.btnModificarArticulo.Location = new System.Drawing.Point(238, 238);
+            this.btnModificarArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModificarArticulo.Location = new System.Drawing.Point(238, 269);
             this.btnModificarArticulo.Name = "btnModificarArticulo";
             this.btnModificarArticulo.Size = new System.Drawing.Size(151, 45);
             this.btnModificarArticulo.TabIndex = 3;
@@ -68,7 +75,9 @@
             // 
             // btnEliminarArticulo
             // 
-            this.btnEliminarArticulo.Location = new System.Drawing.Point(238, 289);
+            this.btnEliminarArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarArticulo.Location = new System.Drawing.Point(238, 320);
             this.btnEliminarArticulo.Name = "btnEliminarArticulo";
             this.btnEliminarArticulo.Size = new System.Drawing.Size(151, 45);
             this.btnEliminarArticulo.TabIndex = 4;
@@ -78,7 +87,9 @@
             // 
             // btnDetalleArticulo
             // 
-            this.btnDetalleArticulo.Location = new System.Drawing.Point(238, 340);
+            this.btnDetalleArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDetalleArticulo.Location = new System.Drawing.Point(238, 371);
             this.btnDetalleArticulo.Name = "btnDetalleArticulo";
             this.btnDetalleArticulo.Size = new System.Drawing.Size(151, 45);
             this.btnDetalleArticulo.TabIndex = 5;
@@ -88,7 +99,9 @@
             // 
             // btnListarArticulo
             // 
-            this.btnListarArticulo.Location = new System.Drawing.Point(238, 85);
+            this.btnListarArticulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnListarArticulo.Location = new System.Drawing.Point(238, 116);
             this.btnListarArticulo.Name = "btnListarArticulo";
             this.btnListarArticulo.Size = new System.Drawing.Size(151, 45);
             this.btnListarArticulo.TabIndex = 6;
@@ -96,18 +109,34 @@
             this.btnListarArticulo.UseVisualStyleBackColor = true;
             this.btnListarArticulo.Click += new System.EventHandler(this.btnListarArticulo_Click);
             // 
+            // tituloApp
+            // 
+            this.tituloApp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tituloApp.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tituloApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tituloApp.Location = new System.Drawing.Point(238, 24);
+            this.tituloApp.Name = "tituloApp";
+            this.tituloApp.Size = new System.Drawing.Size(151, 51);
+            this.tituloApp.TabIndex = 7;
+            this.tituloApp.Text = "Gestor de artículos";
+            this.tituloApp.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(658, 450);
+            this.Controls.Add(this.tituloApp);
             this.Controls.Add(this.btnListarArticulo);
             this.Controls.Add(this.btnDetalleArticulo);
             this.Controls.Add(this.btnEliminarArticulo);
             this.Controls.Add(this.btnModificarArticulo);
             this.Controls.Add(this.btnAgregarArticulo);
             this.Controls.Add(this.btnBusquedaArticulo);
+            this.MinimumSize = new System.Drawing.Size(674, 489);
             this.Name = "frmInicio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmInicio_Load);
             this.ResumeLayout(false);
@@ -121,6 +150,7 @@
         private System.Windows.Forms.Button btnEliminarArticulo;
         private System.Windows.Forms.Button btnDetalleArticulo;
         private System.Windows.Forms.Button btnListarArticulo;
+        private System.Windows.Forms.Label tituloApp;
     }
 }
 

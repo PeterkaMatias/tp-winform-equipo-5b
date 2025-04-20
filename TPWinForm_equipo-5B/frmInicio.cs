@@ -17,11 +17,6 @@ namespace TPWinForm_equipo_5B
             InitializeComponent();
         }
 
-        private void frmInicio_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnListarArticulo_Click(object sender, EventArgs e)
         {
 
@@ -48,5 +43,9 @@ namespace TPWinForm_equipo_5B
 
         }
 
+        private void frmInicio_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
