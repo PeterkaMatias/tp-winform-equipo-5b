@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace TPWinForm_equipo_5B
 {
-    internal static class Program
+    static class Program
     {
         /// <summary>
         /// The main entry point for the application.

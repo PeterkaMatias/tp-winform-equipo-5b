@@ -19,7 +19,14 @@ namespace TPWinForm_equipo_5B
 
         private void btnListarArticulo_Click(object sender, EventArgs e)
         {
-
+            foreach (var item in Application.OpenForms)
+            {
+                if (item.GetType() == typeof(frmInicio))
+                {
+                    MessageBox.Show("Ventana abierta.");
+                    return;
+                }
+            }
         }
         private void btnBusquedaArticulo_Click(object sender, EventArgs e)
         {

@@ -104,7 +104,7 @@
             this.btnListarArticulo.Location = new System.Drawing.Point(238, 116);
             this.btnListarArticulo.Name = "btnListarArticulo";
             this.btnListarArticulo.Size = new System.Drawing.Size(151, 45);
-            this.btnListarArticulo.TabIndex = 6;
+            this.btnListarArticulo.TabIndex = 0;
             this.btnListarArticulo.Text = "Listado de articulos";
             this.btnListarArticulo.UseVisualStyleBackColor = true;
             this.btnListarArticulo.Click += new System.EventHandler(this.btnListarArticulo_Click);
@@ -113,7 +113,7 @@
             // 
             this.tituloApp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tituloApp.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tituloApp.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tituloApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tituloApp.Location = new System.Drawing.Point(238, 24);
             this.tituloApp.Name = "tituloApp";
@@ -126,6 +126,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(658, 450);
             this.Controls.Add(this.tituloApp);
             this.Controls.Add(this.btnListarArticulo);
