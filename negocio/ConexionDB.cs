@@ -14,7 +14,7 @@ namespace negocio
 
         public ConexionDB()
         {
-            conexion = new SqlConnection("server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true");
+            conexion = new SqlConnection("server=localhost; database=CATALOGO_P3_DB; integrated security=true");
             comando = new SqlCommand();
         }
         public void setConsulta(string consulta)
@@ -32,8 +32,7 @@ namespace negocio
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                throw new Exception("Error en ejecutarAccion: " + ex.Message);
             }
         }
         public void cerrarConexion()
@@ -42,6 +41,44 @@ namespace negocio
                 lector.Close();
             conexion.Close();
         }
+        public void setParametro(string nombre, object valor)
+        {
+            comando.Parameters.AddWithValue(nombre, valor);
+        }
+        public int ejecutarScalar()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                return (int)comando.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error en ejecutarAccion: " + ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
 
+        public void ejecutarAccion()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error en ejecutarAccion: " + ex.Message);
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
     }
 }

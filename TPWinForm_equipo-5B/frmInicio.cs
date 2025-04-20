@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using negocio;
 
 namespace TPWinForm_equipo_5B
 {
@@ -19,14 +20,18 @@ namespace TPWinForm_equipo_5B
 
         private void btnListarArticulo_Click(object sender, EventArgs e)
         {
-            foreach (var item in Application.OpenForms)
+            foreach (Form item in Application.OpenForms.Cast<Form>().ToList())
             {
-                if (item.GetType() == typeof(frmInicio))
+                if (item.GetType() == typeof(frmListaArticulos))
                 {
-                    MessageBox.Show("Ventana abierta.");
+                    MessageBox.Show("La ventana ya está abierta.");
+                    item.Focus(); // Opcional: enfoca la ventana si ya está abierta
                     return;
                 }
             }
+
+            frmListaArticulos ventana = new frmListaArticulos();
+            ventana.Show();
         }
         private void btnBusquedaArticulo_Click(object sender, EventArgs e)
         {
@@ -50,9 +55,5 @@ namespace TPWinForm_equipo_5B
 
         }
 
-        private void frmInicio_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
