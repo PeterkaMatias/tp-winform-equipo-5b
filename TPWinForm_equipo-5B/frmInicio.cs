@@ -55,7 +55,18 @@ namespace TPWinForm_equipo_5B
         }
         private void btnModificarArticulo_Click(object sender, EventArgs e)
         {
+            foreach (Form item in Application.OpenForms.Cast<Form>().ToList())
+            {
+                if (item.GetType() == typeof(frmModificarArticulo))
+                {
+                    MessageBox.Show("La ventana ya está abierta.");
+                    item.Focus();
+                    return;
+                }
+            }
 
+            frmModificarArticulo ventana = new frmModificarArticulo();
+            ventana.Show();
         }
         private void btnEliminarArticulo_Click(object sender, EventArgs e)
         {

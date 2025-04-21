@@ -180,5 +180,46 @@ namespace negocio
                 throw ex;
             }
         }
+        public void ModificarArticulo(Articulo modificado)
+        {
+            ConexionDB datos = new ConexionDB();
+
+            try
+            {
+                datos.setConsulta("UPDATE ARTICULOS SET Codigo = @codigo, Nombre = @nombre, Descripcion = @descripcion, IdMarca = @idMarca, IdCategoria = @idCategoria, Precio = @precio WHERE Id = @id");
+                datos.setParametro("@codigo", modificado.Codigo);
+                datos.setParametro("@nombre", modificado.Nombre);
+                datos.setParametro("@descripcion", modificado.Descripcion);
+                datos.setParametro("@idMarca", modificado.Marca.Id);
+                datos.setParametro("@idCategoria", modificado.Categoria.Id);
+                datos.setParametro("@precio", modificado.Precio);
+                datos.setParametro("@id", modificado.Id);
+
+                datos.ejecutarAccion();
+                datos.cerrarConexion();
+
+                if (modificado.Imagenes != null && modificado.Imagenes.Count > 0)
+                {
+                    ConexionDB imagenDB = new ConexionDB();
+                    imagenDB.setConsulta("DELETE FROM IMAGENES WHERE IdArticulo = @id");
+                    imagenDB.setParametro("@id", modificado.Id);
+                    imagenDB.ejecutarAccion();
+
+                    foreach (Imagen img in modificado.Imagenes)
+                    {
+                        imagenDB.setConsulta("INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@idArticulo, @url)");
+                        imagenDB.setParametro("@idArticulo", modificado.Id);
+                        imagenDB.setParametro("@url", img.ImagenUrl);
+                        imagenDB.ejecutarAccion();
+                    }
+
+                    imagenDB.cerrarConexion();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
