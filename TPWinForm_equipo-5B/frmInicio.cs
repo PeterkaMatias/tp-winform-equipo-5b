@@ -59,7 +59,18 @@ namespace TPWinForm_equipo_5B
         }
         private void btnEliminarArticulo_Click(object sender, EventArgs e)
         {
+            foreach (Form item in Application.OpenForms.Cast<Form>().ToList())
+            {
+                if (item.GetType() == typeof(frmEliminarArticulo))
+                {
+                    MessageBox.Show("La ventana ya está abierta.");
+                    item.Focus();
+                    return;
+                }
+            }
 
+            frmEliminarArticulo ventana = new frmEliminarArticulo();
+            ventana.Show();
         }
         private void btnDetalleArticulo_Click(object sender, EventArgs e)
         {

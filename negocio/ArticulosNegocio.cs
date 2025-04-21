@@ -109,5 +109,26 @@ namespace negocio
                 throw ex;
             }
         }
+        public void EliminarArticulo(int id)
+        {
+            try
+            {
+                ConexionDB datosImagenes = new ConexionDB();
+                datosImagenes.setConsulta("DELETE FROM IMAGENES WHERE IdArticulo = @id");
+                datosImagenes.setParametro("@id", id);
+                datosImagenes.ejecutarAccion();
+                datosImagenes.cerrarConexion();
+
+                ConexionDB datosArticulo = new ConexionDB();
+                datosArticulo.setConsulta("DELETE FROM ARTICULOS WHERE Id = @id");
+                datosArticulo.setParametro("@id", id);
+                datosArticulo.ejecutarAccion();
+                datosArticulo.cerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
