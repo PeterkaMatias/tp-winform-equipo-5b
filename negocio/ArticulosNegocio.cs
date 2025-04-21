@@ -164,7 +164,14 @@ namespace negocio
                 }
                 else
                 {
-                    throw new Exception("Artículo no encontrado.");
+                    articulo.Id = 0;
+                    articulo.Codigo = "No se encontro el articulo";
+                    articulo.Nombre = "No se encontro el articulo";
+                    articulo.Descripcion = "No se encontro el articulo";
+                    articulo.Precio = 0;
+                    articulo.Marca = new Marca { Descripcion = "No se encontro el articulo" };
+                    articulo.Categoria = new Categoria { Descripcion = "No se encontro el articulo" };
+                    articulo.Imagenes = new List<Imagen>();
                 }
                 return articulo;
             }

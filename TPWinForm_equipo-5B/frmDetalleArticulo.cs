@@ -22,13 +22,17 @@ namespace TPWinForm_equipo_5B
         private void btnEnviar_Click(object sender, EventArgs e)
         {
             int id = (int)numeroID.Value;
-
             ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo articulo = negocio.DetalleArticulo(id);
+
+            if (articulo.Id == 0)
+            {
+                MessageBox.Show("Artículo no encontrado.");
+                return;
+            }
 
             try
             {
-                Articulo articulo = negocio.DetalleArticulo(id); 
-
                 lblCodigo.Text = "Codigo = " + articulo.Codigo;
                 lblNombre.Text = "Nombre = " + articulo.Nombre;
                 lblDescripcion.Text = "Descripcion = " + articulo.Descripcion;
