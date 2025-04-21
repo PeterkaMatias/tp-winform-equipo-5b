@@ -25,7 +25,7 @@ namespace TPWinForm_equipo_5B
                 if (item.GetType() == typeof(frmListaArticulos))
                 {
                     MessageBox.Show("La ventana ya está abierta.");
-                    item.Focus(); // Opcional: enfoca la ventana si ya está abierta
+                    item.Focus();
                     return;
                 }
             }
@@ -40,7 +40,18 @@ namespace TPWinForm_equipo_5B
 
         private void btnAgregarArticulo_Click(object sender, EventArgs e)
         {
+            foreach (Form item in Application.OpenForms.Cast<Form>().ToList())
+            {
+                if (item.GetType() == typeof(frmAgregarArticulo))
+                {
+                    MessageBox.Show("La ventana ya está abierta.");
+                    item.Focus();
+                    return;
+                }
+            }
 
+            frmAgregarArticulo ventana = new frmAgregarArticulo();
+            ventana.Show();
         }
         private void btnModificarArticulo_Click(object sender, EventArgs e)
         {

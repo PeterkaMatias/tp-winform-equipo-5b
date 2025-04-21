@@ -76,7 +76,6 @@ namespace negocio
 
             try
             {
-                // Insertar artículo y obtener el Id generado
                 datos.setConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) " +
                                   "OUTPUT INSERTED.Id " +
                                   "VALUES (@codigo, @nombre, @descripcion, @idMarca, @idCategoria, @precio)");
@@ -88,11 +87,10 @@ namespace negocio
                 datos.setParametro("@idCategoria", nuevo.Categoria.Id);
                 datos.setParametro("@precio", nuevo.Precio);
 
-                int idArticulo = datos.ejecutarScalar(); // método que devuelve el ID insertado
+                int idArticulo = datos.ejecutarScalar();
 
                 datos.cerrarConexion();
 
-                // Insertar imágenes asociadas
                 if (nuevo.Imagenes != null && nuevo.Imagenes.Count > 0)
                 {
                     foreach (Imagen img in nuevo.Imagenes)
