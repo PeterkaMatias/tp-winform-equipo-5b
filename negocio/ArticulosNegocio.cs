@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using dominio;
+using System.Collections;
 
 namespace negocio
 {
@@ -124,6 +125,48 @@ namespace negocio
                 datosArticulo.setParametro("@id", id);
                 datosArticulo.ejecutarAccion();
                 datosArticulo.cerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public Articulo DetalleArticulo(int id)
+        {
+            Articulo articulo = new Articulo();
+            ConexionDB datos = new ConexionDB();
+            try
+            {
+                datos.setConsulta("select a.Id, Codigo, Nombre, a.Descripcion, M.Descripcion as marca, a.IdCategoria, C.Descripcion as categoria, Precio " +
+                                  "from ARTICULOS A " +
+                                  "left join MARCAS M on a.IdMarca = M.Id " +
+                                  "left join CATEGORIAS C on A.IdCategoria = C.Id " +
+                                  "WHERE a.Id = @id");
+                datos.setParametro("@id", id);
+                datos.ejecutarLectura();
+
+                if (datos.lector.Read()) 
+                {
+                    articulo.Id = (int)datos.lector["Id"];
+                    articulo.Codigo = (string)datos.lector["Codigo"];
+                    articulo.Nombre = (string)datos.lector["Nombre"];
+                    articulo.Categoria = new Categoria();
+                    if (!(datos.lector.IsDBNull(datos.lector.GetOrdinal("Categoria"))))
+                        articulo.Categoria.Descripcion = (string)datos.lector["Categoria"];
+                    else
+                        articulo.Categoria.Descripcion = "";
+                    articulo.Marca = new Marca();
+                    articulo.Marca.Descripcion = (string)datos.lector["Marca"];
+                    articulo.Descripcion = (string)datos.lector["Descripcion"];
+                    articulo.Precio = (decimal)datos.lector["Precio"];
+                    articulo.Imagenes = ListarImagen(articulo.Id);
+                }
+                else
+                {
+                    throw new Exception("Artículo no encontrado.");
+                }
+                return articulo;
             }
             catch (Exception ex)
             {
